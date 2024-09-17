@@ -1,0 +1,24 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "nodemon index",
+		"start": "node index"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Beenlord/server.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Beenlord/server/issues"
+	},
+	"homepage": "https://github.com/Beenlord/server#readme",
+	"devDependencies": {
+		"nodemon": "^3.1.4"
+	}
+}
