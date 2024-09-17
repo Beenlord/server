@@ -20,29 +20,16 @@ const router = uri => {
 
 		readFile(file).then(res).catch(rej)
 	})
-
-	if (uri !== '/') {
-		file = path.resolve(hostroot, uri)
-		const st = fs.stat(file)
-		if (st.isDirectory()) {
-			file = path.resolve(file, 'index.html')
-		}
-		if (!fs.existsSync(file)) {
-			throw new Error(`Ошибка чтения файла ${file}`)
-		}
-	}
-
-	console.log(file)
 }
 
 const server = http.createServer((req, res) => {
-	res.setHeader('Content-Type', 'text/html')
+	res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
 
 	router(req.url)
 		.then(html => res.end(html))
 		.catch(() => {
 			res.statusCode = 404
-			res.end('<h3>Err.</h3><p>Ошибка пути к файлу.</p>')
+			res.end('<h3>Err 404</h3><a href="/">Go home</a>')
 		})
 })
 
